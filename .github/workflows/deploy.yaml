@@ -1,0 +1,15 @@
+name: "Deploy CodigoFacilito"
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy-codigofacilito:
+    runs-on: ubuntu-latest
+    step:
+      - uses: actions/checkout@v4
+      - run: echo "Downloading code"
+      - run: echo "Installing dependencies"
+      - run: echo "Runing unit test cases"
+      - run: echo "Successful"
