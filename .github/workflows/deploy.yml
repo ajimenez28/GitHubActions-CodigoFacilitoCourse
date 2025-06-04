@@ -7,13 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NAME: CODIGO_FACILITO
+
+    outputs:
+      salida: ${{ steps.step_1.outputs.myVariable}} "
+
     steps:
       - name: Working dir
         id: step_1
         run: echo "myVariable=Soy Alejandro" >> $GITHUB_OUTPUT
 
       - name: Getting message
-        run: echo "${{ steps.step_1.outputs.myVariable}}"
+        run: echo "${{ steps.step_1.outputs.myVariable }}"
 
 
   second_job:
@@ -21,6 +25,9 @@ jobs:
     needs: first_job
     runs-on: ubuntu-latest
 
+    env:
+      SALIDA: ${{ needs.first_job.outputs.salida }}
+
     steps:
       - name: Hello World 2 
-        run: echo "Hello World Again!"
+        run: echo "$SALIDA"
