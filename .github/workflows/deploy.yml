@@ -8,8 +8,14 @@ jobs:
     env:
       NAME: CODIGO_FACILITO
     steps:
-      - name: Hello World
-        run: echo "This is a course from $NAME"
+      - name: Working dir
+        run: ls -la
+
+      - name: Action
+        uses: actions/checkout@v4
+
+      - name: Working dir after action
+        run: ls -la
 
 
   second_job:
