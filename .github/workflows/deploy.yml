@@ -9,7 +9,11 @@ jobs:
       NAME: CODIGO_FACILITO
     steps:
       - name: Working dir
-        run: echo $GITHUB_OUTPUT
+        id: step_1
+        run: echo "myVariable=Soy Alejandro" >> $GITHUB_OUTPUT
+
+      - name: Getting message
+        run: echo "${{ steps.step_1.outputs.myVariable}}"
 
 
   second_job:
