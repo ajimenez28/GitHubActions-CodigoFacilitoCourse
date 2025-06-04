@@ -1,0 +1,21 @@
+name: Playing with artifacts
+
+on: push
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+
+    outputs:
+      salida: ${{ steps.step_1.outputs.myVariable}} "
+
+    steps:
+      - name: Creating File
+        run: |
+          echo "Testing file, hello" >> test.log
+
+      - name: Load File
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-file
+          path: test.log
