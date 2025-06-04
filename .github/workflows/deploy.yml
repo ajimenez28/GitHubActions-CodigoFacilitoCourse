@@ -5,10 +5,12 @@ on: push
 jobs:
   first_job:
     runs-on: ubuntu-latest
-
+    env:
+      NAME: CODIGO_FACILITO
     steps:
       - name: Hello World
         run: echo "Hello World!"
+        run: echo "This is a course from $NAME"
 
 
   second_job:
