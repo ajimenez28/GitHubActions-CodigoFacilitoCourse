@@ -9,13 +9,7 @@ jobs:
       NAME: CODIGO_FACILITO
     steps:
       - name: Working dir
-        run: ls -la
-
-      - name: Action
-        uses: actions/checkout@v4
-
-      - name: Working dir after action
-        run: ls -la
+        run: echo $GITHUB_OUTPUT
 
 
   second_job:
